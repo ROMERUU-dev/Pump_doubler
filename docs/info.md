@@ -37,9 +37,9 @@ The analog pins are used as follows.
 | `ua[4]` | Vin | power | Supply for the inverter block |
 | `ua[5]` | GND | ground | Return for the inverter block |
 
-Note on the current revision: in the committed GDS, `ua[1]` through `ua[5]` are connected
-to the circuit, but `ua[0]` (Out) carries only the template pin stub and is not routed to
-any net. The output is therefore not reachable on this revision of the layout.
+Note on this branch: `ua[0]` (Out) is routed here to `net4`, the opposite phase of the
+ring, on the assumption that Out is the second drive node of the ping pong. That
+assumption has not been confirmed against the schematic.
 
 ## How to test
 

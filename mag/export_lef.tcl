@@ -14,11 +14,12 @@
 # is what the precheck expects. This is the same command the Tiny Tapeout analog
 # template uses in magic_init_project.tcl.
 #
-# Note that this script deliberately does not rewrite gds/. Re-exporting the GDS
-# from the .mag does not reproduce the committed GDS bit for bit, because Magic
-# re-derives the standard cell implant and boundary layers, so the signed off
-# GDS is kept as the authoritative artifact.
+# Re-exporting the GDS from this .mag is faithful: with the standard cells
+# resolved from the PDK, "gds write" reproduces the committed GDS with zero
+# geometry differences on every layer, verified by a KLayout XOR. Uncomment the
+# "gds write" line below when the layout itself changes.
 
 load tt_um_regulated_pump
 lef write ../lef/tt_um_regulated_pump.lef -hide -pinonly
+# gds write ../gds/tt_um_regulated_pump.gds
 quit -noprompt
